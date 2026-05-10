@@ -1,4 +1,4 @@
-/* Google Fonts */
+/* Kura Visual Identity System - Fresh Gradient */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap');
 
 :root {
@@ -6,13 +6,20 @@
     --pink: #EC4899;
     --orange: #F97316;
     --slate: #0F172A;
-    --gray-bg: #F8FAFC;
-    --border-radius: 12px;
+    --white: #FFFFFF;
+    --radius: 24px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    scroll-behavior: smooth;
+    color: var(--slate);
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -20,84 +27,81 @@ body {
     font-family: 'Outfit', sans-serif;
 }
 
-h1, h2, h3, h4 {
-    font-family: 'Outfit', sans-serif;
-}
-
+/* Glass-morphism */
 .glass {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 /* Animations */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fade-in {
-    animation: fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    0%, 100% { transform: translateY(0) rotate(-1deg); }
+    50% { transform: translateY(-15px) rotate(1deg); }
 }
 
 .animate-float {
-    animation: float 4s ease-in-out infinite;
+    animation: float 6s ease-in-out infinite;
 }
 
 .animate-float-delayed {
-    animation: float 4s ease-in-out 2s infinite;
+    animation: float 6s ease-in-out 3s infinite;
 }
 
-/* Custom Utilities */
+/* Product Cards */
 .product-card {
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    background: #FFFFFF;
-    border: 1px solid #F1F5F9;
-    border-radius: 20px;
-    padding: 16px;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .product-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.1);
-    border-color: #E2E8F0;
+    transform: translateY(-12px);
 }
 
-.product-image-container {
-    width: 100%;
-    aspect-ratio: 1/1;
-    overflow: hidden;
-    border-radius: 16px;
-    background: #F8FAFC;
-    margin-bottom: 20px;
+/* Inputs */
+input, textarea {
+    transition: all 0.3s ease;
 }
 
-.product-image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
+input:focus, textarea:focus {
+    background: white !important;
+    border-color: var(--purple) !important;
 }
 
-.product-card:hover .product-image-container img {
-    transform: scale(1.05);
+/* Scroll Behavior */
+html {
+    scroll-behavior: smooth;
 }
 
-/* Form Styles */
-input::placeholder {
-    color: #94A3B8;
+/* Selection */
+::selection {
+    background: var(--pink);
+    color: white;
 }
 
-#waitlist input:focus {
-    box-shadow: none;
+/* Gradient text utility */
+.gradient-text {
+    background: linear-gradient(to right, var(--purple), var(--pink), var(--orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-button {
-    cursor: pointer;
+/* Section rounding */
+section.rounded-sections {
+    border-radius: 60px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    h1 { font-size: 3.5rem !important; }
+    .animate-float, .animate-float-delayed { animation: none; }
 }
