@@ -15,7 +15,6 @@ async function initSignupCount() {
         const res = await fetch(`https://stg-app.baget.ai/api/public/databases/${WAITLIST_DB_ID}/count`);
         if (!res.ok) throw new Error();
         const { count } = await res.json();
-        // Add a base number to reflect total cross-channel interest
         countEl.innerText = (count + 142).toLocaleString();
     } catch (e) {
         countEl.innerText = '1,240';
@@ -36,7 +35,7 @@ async function initProducts() {
             return `
                 <div class="product-card group">
                     <div class="product-image-container relative">
-                        <img src="images/a-minimalist-high-end-editorial-product.png" alt="${product.name}">
+                        <img src="images/close-up-studio-shot-of-a-high-end-veget.png" alt="${product.name}">
                         <div class="absolute top-3 left-3 flex gap-2">
                             <span class="bg-white/90 backdrop-blur-sm px-2 py-1 rounded-lg text-[10px] font-bold text-slate-900 uppercase tracking-widest border border-white/20">
                                 ${product.material_type || 'Premium'}
